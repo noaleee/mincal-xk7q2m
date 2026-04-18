@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/mincal-xk7q2m/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Mincal preview">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="mincal">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <title>mincal</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    #pw-gate{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#F8F6F3;font-family:'Pretendard',-apple-system,sans-serif}
+    #pw-gate.hidden{display:none}
+    #pw-gate h2{font-size:20px;font-weight:600;color:#2A2825;margin-bottom:8px}
+    #pw-gate p{font-size:14px;color:#2A2825aa;margin-bottom:24px}
+    #pw-gate input{width:200px;padding:12px 16px;border:1.5px solid #ddd;border-radius:12px;font-size:16px;text-align:center;font-family:inherit;outline:none;background:#fff}
+    #pw-gate input:focus{border-color:#8A7E72}
+    #pw-gate .err{color:#E05050;font-size:13px;margin-top:8px;min-height:20px}
+  </style>
+</head>
+<body>
+  <div id="pw-gate">
+    <h2>Mincal Preview</h2>
+    <p>비밀번호를 입력하세요</p>
+    <input id="pw-input" type="password" placeholder="password" autofocus onkeydown="if(event.key==='Enter')checkPw()">
+    <div class="err" id="pw-err"></div>
+  </div>
+  <script>
+    function checkPw(){
+      if(document.getElementById('pw-input').value==='mincal2026'){
+        document.getElementById('pw-gate').classList.add('hidden');
+        var s=document.createElement('script');
+        s.src='flutter_bootstrap.js';
+        s.async=true;
+        document.body.appendChild(s);
+      } else {
+        document.getElementById('pw-err').textContent='비밀번호가 틀렸어요';
+        document.getElementById('pw-input').value='';
+      }
+    }
+  </script>
+</body>
+</html>
